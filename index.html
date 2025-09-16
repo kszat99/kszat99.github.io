@@ -20,9 +20,13 @@
       --accent-2:#8ae9b3;
       --shadow: 0 6px 20px rgba(0,0,0,.25);
     }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#f8fafc; --fg:#0b1220; --muted:#5c6b80; --card:#ffffff; --bd:#e5eaf0; --accent:#2f7ef9; --accent-2:#17c297; --shadow: 0 8px 30px rgba(17, 24, 39, .08); }
-    }
+    /* explicit themes override system */
+    :root[data-theme="light"]{ --bg:#f8fafc; --fg:#0b1220; --muted:#5c6b80; --card:#ffffff; --bd:#e5eaf0; --accent:#2f7ef9; --accent-2:#17c297; --shadow: 0 8px 30px rgba(17, 24, 39, .08); }
+    :root[data-theme="dark"]{ --bg:#0b0f14; --fg:#e9eef7; --muted:#9fb3c8; --card:#0f151d; --bd:#1d2633; --accent:#7bd6ff; --accent-2:#8ae9b3; --shadow: 0 6px 20px rgba(0,0,0,.25); }
+
+    /* if no manual theme is set, fall back to system preference */
+    @media (prefers-color-scheme: light){ :root:not([data-theme]){ --bg:#f8fafc; --fg:#0b1220; --muted:#5c6b80; --card:#ffffff; --bd:#e5eaf0; --accent:#2f7ef9; --accent-2:#17c297; --shadow: 0 8px 30px rgba(17, 24, 39, .08);} }
+    @media (prefers-color-scheme: dark){ :root:not([data-theme]){ --bg:#0b0f14; --fg:#e9eef7; --muted:#9fb3c8; --card:#0f151d; --bd:#1d2633; --accent:#7bd6ff; --accent-2:#8ae9b3; --shadow: 0 6px 20px rgba(0,0,0,.25);} }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0; font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; background:radial-gradient(1200px 700px at 10% -10%, rgba(123,214,255,.12), transparent 60%), radial-gradient(800px 500px at 90% 10%, rgba(138,233,179,.12), transparent 55%), var(--bg); color:var(--fg)}
@@ -177,22 +181,31 @@
 
     <footer>
       <span>© <span id="y"></span> Kacper Szatkowski</span>
-      <button class="toggle" id="toggle">Toggle theme</button>
+      <button class="toggle" id="toggle">Light mode<\/button>
     </footer>
   </div>
 
   <script>
-    // Theme toggle (stores preference)
+    // Binary theme toggle (dark ↔ light), remembers choice
     const btn = document.getElementById('toggle');
     const key = 'theme-pref';
-    const set = (m)=>document.documentElement.dataset.theme=m;
+    const set = (m) => { document.documentElement.dataset.theme = m; };
+    const applyLabel = () => {
+      btn.textContent = (document.documentElement.dataset.theme === 'dark') ? 'Light mode' : 'Dark mode';
+    };
+
     const saved = localStorage.getItem(key);
-    if(saved) set(saved);
-    btn.addEventListener('click',()=>{
-      const cur = document.documentElement.dataset.theme;
-      const next = cur==='light' ? 'dark' : (cur==='dark' ? '' : 'light');
-      set(next); next ? localStorage.setItem(key,next) : localStorage.removeItem(key);
+    set(saved || 'dark'); // default to dark
+    applyLabel();
+
+    btn.addEventListener('click', () => {
+      const cur = document.documentElement.dataset.theme || 'dark';
+      const next = (cur === 'dark') ? 'light' : 'dark';
+      set(next);
+      localStorage.setItem(key, next);
+      applyLabel();
     });
+
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
