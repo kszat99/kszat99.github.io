@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kacper Szatkowski — Portfolio</title>
+  <meta name="description" content="Kacper Szatkowski — projects, skills, CV, and contact." />
+  <meta property="og:title" content="Kacper Szatkowski — Portfolio" />
+  <meta property="og:description" content="Projects, skills, CV, and contact." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --fg: #e9eef7;
+      --muted:#9fb3c8;
+      --card:#0f151d;
+      --bd:#1d2633;
+      --accent:#7bd6ff;
+      --accent-2:#8ae9b3;
+      --shadow: 0 6px 20px rgba(0,0,0,.25);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f8fafc; --fg:#0b1220; --muted:#5c6b80; --card:#ffffff; --bd:#e5eaf0; --accent:#2f7ef9; --accent-2:#17c297; --shadow: 0 8px 30px rgba(17, 24, 39, .08); }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; background:radial-gradient(1200px 700px at 10% -10%, rgba(123,214,255,.12), transparent 60%), radial-gradient(800px 500px at 90% 10%, rgba(138,233,179,.12), transparent 55%), var(--bg); color:var(--fg)}
+    .wrap{max-width:1080px; margin:0 auto; padding:28px 20px 80px}
+    header{display:flex; align-items:center; gap:18px; margin-bottom:26px}
+    .avatar{width:88px; height:88px; border-radius:50%; border:1px solid var(--bd); background:linear-gradient(135deg, var(--card), rgba(255,255,255,.04)); box-shadow:var(--shadow); display:grid; place-items:center; font-weight:700; letter-spacing:.5px}
+    h1{margin:0; font-size:30px; line-height:1.2}
+    .muted{color:var(--muted)}
+    .row{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; border:1px solid var(--bd); background:var(--card); color:var(--fg); text-decoration:none; box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-1px)}
+    .btn--primary{border-color:transparent; background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#03121a}
+
+    .grid{display:grid; grid-template-columns: 1.1fr 0.9fr; gap:22px}
+    @media (max-width:900px){ .grid{grid-template-columns:1fr} }
+
+    .full{grid-column:1 / -1}
+    section{background:var(--card); border:1px solid var(--bd); border-radius:18px; padding:18px; box-shadow:var(--shadow)}
+    h2{margin:0 0 10px; font-size:18px; letter-spacing:.3px}
+    p{margin:0 0 10px}
+
+    .pills{display:flex; gap:8px; flex-wrap:wrap}
+    .pill{padding:6px 10px; border:1px solid var(--bd); border-radius:999px; font-size:13px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.02))}
+
+    .cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px}
+    @media (max-width:700px){ .cards{grid-template-columns:1fr} }
+    .card{padding:14px; border:1px solid var(--bd); border-radius:16px; background:linear-gradient(180deg, var(--card), rgba(255,255,255,.02)); box-shadow:var(--shadow)}
+    .card h3{margin:0 0 6px; font-size:16px}
+    .tags{display:flex; gap:6px; flex-wrap:wrap; margin:6px 0 10px}
+    .tag{font-size:12px; padding:4px 8px; border:1px dashed var(--bd); border-radius:999px; color:var(--muted)}
+    .links{display:flex; gap:10px; flex-wrap:wrap}
+    .links a{color:var(--accent); text-decoration:none}
+    .links a:hover{text-decoration:underline}
+
+    .timeline{list-style:none; margin:0; padding:0}
+    .timeline li{display:grid; grid-template-columns: 120px 1fr; gap:12px; padding:12px 0; border-top:1px solid var(--bd)}
+    .timeline li:first-child{border-top:0}
+    .when{color:var(--muted); font-size:13px}
+
+    footer{margin-top:28px; color:var(--muted); font-size:14px; display:flex; justify-content:space-between; align-items:center}
+    .toggle{cursor:pointer; font-size:14px; padding:6px 10px; border:1px solid var(--bd); border-radius:10px; background:var(--card)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="avatar" aria-hidden="true">KS</div>
+      <div>
+        <h1>Kacper Szatkowski</h1>
+        <div class="muted">L2 Support Technician & Data/Automation — Warsaw</div>
+        <div class="row" style="margin-top:10px">
+          <a class="btn" href="mailto:szatkowskikacper@gmail.com">Email</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">Download CV</a>
+        </div>
+      </div>
+      <div style="margin-left:auto"></div>
+    </header>
+
+    <div class="grid">
+      <section>
+        <h2>About</h2>
+        <p>L2 Support Technician focusing on troubleshooting, incident/change workflows (ITIL), and small automations that reduce toil. Recent project: a Letterboxd watcher (RSS → HTML email → Snowflake). Comfortable with Python, SQL, and shipping things with GitHub Actions.</p>
+        <div class="pills" style="margin-top:8px">
+          <span class="pill">Python</span><span class="pill">SQL</span><span class="pill">GitHub Actions</span><span class="pill">Snowflake</span><span class="pill">PostgreSQL</span><span class="pill">MySQL</span><span class="pill">MongoDB</span><span class="pill">Linux</span><span class="pill">Networking</span><span class="pill">Salesforce</span><span class="pill">Zendesk</span><span class="pill">HTML/CSS</span><span class="pill">JavaScript</span><span class="pill">ITIL</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> <a href="mailto:szatkowskikacper@gmail.com">szatkowskikacper@gmail.com</a><br>
+           <strong>Location:</strong> Warsaw, PL (remote-friendly)<br>
+           <strong>Now:</strong> open to junior roles & small freelance tasks</p>
+      </section>
+
+      <section class="full">
+        <h2>Projects</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Letterboxd Activity Watcher</h3>
+            <div class="tags"><span class="tag">Python</span><span class="tag">RSS</span><span class="tag">Gmail</span><span class="tag">Snowflake</span></div>
+            <p>Checks an RSS feed daily, emails a clean digest (posters, ratings, reviews), and writes every item into Snowflake with idempotent upserts.</p>
+            <div class="links">
+              <a href="#" target="_blank" rel="noreferrer">Repo</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Tiny ETL: CSV → SQL</h3>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">SQL</span></div>
+            <p>One-file script that loads CSVs, cleans types, and bulk-inserts to a warehouse. Solid starter for data tasks.</p>
+            <div class="links">
+              <a href="#">Repo</a>
+            </div>
+          </div>
+        <div class="card">
+            <h3>Lightshot URL Generator & Downloader</h3>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Requests</span><span class="tag">Automation</span></div>
+            <p>Placeholder: script that generates Lightshot screenshot URLs, checks availability, and downloads images for analysis/archiving.</p>
+            <div class="links">
+              <a href="#" target="_blank" rel="noreferrer">Repo</a>
+            </div>
+          </div></div>
+      </section>
+
+      <section>
+        <h2>Experience &amp; Education</h2>
+        <ul class="timeline">
+          <li>
+            <div class="when">2024–now</div>
+            <div><strong>L2 Support Technician — (Company)</strong><br>Investigated complex incidents, owned escalations, wrote/runbooks & KB, automated repetitive checks, and collaborated with Dev/Infra using ITIL practices.</div>
+          </li>
+          <li>
+            <div class="when">11/2022–11/2023</div>
+            <div><strong>Webinterpret Poland — Backoffice Account Manager</strong><br>Grew accounts and profits; deep‑dive analysis (Salesforce/Tableau/SQL); cross‑team support with Sales & Dev; resolved issues in web apps.</div>
+          </li>
+          <li>
+            <div class="when">08/2022–10/2022</div>
+            <div><strong>Webinterpret Poland — Customer Success Intern</strong><br>Supported B2B customers; solved problems via Zendesk/Salesforce and database queries; collaborated with other teams.</div>
+          </li>
+          <li>
+            <div class="when">2018–2022</div>
+            <div><strong>Poznań University of Technology — Teleinformatics</strong></div>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Courses &amp; Certifications</h2>
+        <ul>
+          <li>ITIL Foundation (PeopleCert)</li>
+          <li>DaftAcademy</li>
+          <li>Python LevelUP — Data Science by Appsilon</li>
+          <li>Data & Business Intelligence Analyst — Google Cloud</li>
+          <li>Google Cloud for Developers</li>
+          <li>Kaggle — Advanced SQL · Pandas · Data Visualization · Data Cleaning</li>
+          <li>Google Garage — Fundamentals of Digital Marketing</li>
+          <li>freeCodeCamp — Responsive Web Design · Relational Databases</li>
+          <li>English B2 — English in Technology</li>
+        </ul>
+      </section>
+
+      <section class="full">
+        <h2>Now / Learning</h2>
+        <ul>
+          <li>Snowflake: warehouses, SQL, Python connector</li>
+          <li>ETL/ELT patterns: from CSV/APIs to warehouse</li>
+          <li>Planning further ITIL certifications</li>
+        </ul>
+      </section>
+    </div>
+
+    <footer>
+      <span>© <span id="y"></span> Kacper Szatkowski</span>
+      <button class="toggle" id="toggle">Toggle theme</button>
+    </footer>
+  </div>
+
+  <script>
+    // Theme toggle (stores preference)
+    const btn = document.getElementById('toggle');
+    const key = 'theme-pref';
+    const set = (m)=>document.documentElement.dataset.theme=m;
+    const saved = localStorage.getItem(key);
+    if(saved) set(saved);
+    btn.addEventListener('click',()=>{
+      const cur = document.documentElement.dataset.theme;
+      const next = cur==='light' ? 'dark' : (cur==='dark' ? '' : 'light');
+      set(next); next ? localStorage.setItem(key,next) : localStorage.removeItem(key);
+    });
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
